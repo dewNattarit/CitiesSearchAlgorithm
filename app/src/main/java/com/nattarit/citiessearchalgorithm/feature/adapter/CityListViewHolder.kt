@@ -10,11 +10,18 @@ import kotlinx.android.synthetic.main.item_city_list.view.*
 class CityListViewHolder (
     itemView: View,
     event: MutableLiveData<CityListEvent>,
+    val data:List<City>
 ) :
     BaseViewHolder<City>(itemView) {
     private val TAG = javaClass.simpleName
 
 
+    init {
+
+        itemView.ctl_city.setOnClickListener {
+            event.value  = CityListEvent.OnClick(adapterPosition,data[adapterPosition])
+        }
+    }
 
     override fun bind(item: City, position: Int) {
         val textCity = "${item.name} , ${item.country}"

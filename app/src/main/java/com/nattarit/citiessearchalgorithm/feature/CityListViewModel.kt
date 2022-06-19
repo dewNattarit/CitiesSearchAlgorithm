@@ -1,18 +1,33 @@
 package com.nattarit.citiessearchalgorithm.feature
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.nattarit.citiessearchalgorithm.core.BaseViewModel
 import com.nattarit.citiessearchalgorithm.core.domain.entity.City
-import kotlin.random.Random
+import com.nattarit.citiessearchalgorithm.core.domain.usecase.GetCityListUseCase
 
-class CityListViewModel:BaseViewModel() {
+class CityListViewModel constructor(private val getCityListUseCase: GetCityListUseCase):BaseViewModel() {
+    private val TAG = javaClass.simpleName
     private var _cities: MutableLiveData<List<City>> = MutableLiveData()
     val cities: LiveData<List<City>> = _cities
 
     fun initData(){
-        getMockCities()
+        getCityList()
+        //getMockCities()
     }
+     private fun getCityList(){
+         getCityListUseCase(GetCityListUseCase.Params(true)){
+            it.fold(::handleFailure, ::handleGetCityListUseCase)
+         }
+      }
+      private fun handleGetCityListUseCase(cities: List<City>){
+          Log.i(TAG, "handleGetCityListUseCase: ${cities.size}")
+          _cities.value = cities
+      }
+
+
+
     private fun getMockCities(){
         val cityList = arrayListOf<City>()
         cityList.clear()

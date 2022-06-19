@@ -35,6 +35,7 @@ sealed class Failure {
     object UnExpectedError : Failure()
     object UrlNotFoundError : Failure()
     object ApiError : Failure()
+    object InvalidResponse : Failure()
 
     /** * Extend this class for feature specific failures.*/
     abstract class FeatureFailure: Failure()

@@ -27,7 +27,7 @@ class CityListAdapter(val event: MutableLiveData<CityListEvent> = MutableLiveDat
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_city_list, parent, false)
-        return CityListViewHolder(view, event)
+        return CityListViewHolder(view, event,data)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
