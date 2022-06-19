@@ -1,9 +1,8 @@
 package com.nattarit.citiessearchalgorithm.core.data.remote.api
 
-import com.nattarit.citiessearchalgorithm.core.data.remote.model.CityModel
+import com.nattarit.citiessearchalgorithm.core.data.model.CityModel
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
 
 interface CityApi {
     @GET("cities.json")

@@ -1,4 +1,4 @@
-package com.nattarit.citiessearchalgorithm.core.data.remote.model
+package com.nattarit.citiessearchalgorithm.core.data.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
