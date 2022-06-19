@@ -22,16 +22,56 @@
         android:hint="@string/hint_search"
         android:textSize="14sp"
         android:imeOptions="actionSearch"
-        android:inputType="textPersonName"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/tv_not_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:visibility="visible"
+        android:visibility="gone"
+        style="@style/FontTextHeader4"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/edt_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/no_data_found"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_city_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@+id/edt_search"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="10dp"/>
+
+
+    <RelativeLayout
+        android:id="@+id/rel_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="visible"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/pgb_loading"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/tv_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pgb_loading"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="@string/loading"
+            android:textColor="@color/eerie_black" />
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

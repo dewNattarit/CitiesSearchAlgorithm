@@ -1,7 +1,6 @@
 package com.nattarit.citiessearchalgorithm
 
 import android.app.Application
-import android.content.Intent
 import android.util.Log
 import com.nattarit.citiessearchalgorithm.core.di.appModule
 import org.koin.android.ext.koin.androidContext

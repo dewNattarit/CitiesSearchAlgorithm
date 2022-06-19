@@ -6,10 +6,10 @@ import com.nattarit.citiessearchalgorithm.core.exception.Failure
 import com.nattarit.citiessearchalgorithm.core.fuctionnal.Either
 import com.nattarit.citiessearchalgorithm.core.interactor.UseCase
 
-class GetCityListUseCase constructor(private val cityRemoteRepository: CityRemoteRepository) :
-    UseCase< List<City>, GetCityListUseCase.Params>() {
+class FilterCityListUseCase constructor(private val cityRemoteRepository: CityRemoteRepository) :
+    UseCase< List<City>, FilterCityListUseCase.Params>() {
     override suspend fun run(params: Params): Either<Failure, List<City>> {
-        return cityRemoteRepository.getCityList()
+        return cityRemoteRepository.filterCities(params.keyWord,params.cities)
     }
-    data class Params(val isCallApi:Boolean)
+    data class Params(val keyWord:String,val cities:List<City>)
 }

@@ -3,8 +3,8 @@ package com.nattarit.citiessearchalgorithm.core.data.remote.model
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import com.nattarit.citiessearchalgorithm.core.domain.entity.City
-import com.nattarit.citiessearchalgorithm.core.domain.entity.Coordinate
 import kotlinx.android.parcel.Parcelize
+
 @Parcelize
 class CityModel(
     @SerializedName("_id")
@@ -25,4 +25,5 @@ class CityModel(
             city.coordinate = coordinate?.toCoordinate()
             return city
         }
+
 }

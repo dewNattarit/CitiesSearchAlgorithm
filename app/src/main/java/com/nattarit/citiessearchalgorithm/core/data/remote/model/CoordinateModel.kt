@@ -10,12 +10,13 @@ class CoordinateModel(
     @SerializedName("lon")
     var longitude:Double? = null,
     @SerializedName("lat")
-    var latititude:Double? = null,
+    var latitude:Double? = null,
 ):Parcelable{
     fun toCoordinate(): Coordinate {
         val coordinate = Coordinate()
         coordinate.longitude = longitude
-        coordinate.latititude = latititude
+        coordinate.latitude = latitude
         return coordinate
     }
+
 }

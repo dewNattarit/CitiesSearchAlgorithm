@@ -2,9 +2,11 @@ package com.nattarit.citiessearchalgorithm.feature
 
 import android.os.Bundle
 import android.util.Log
+import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nattarit.citiessearchalgorithm.R
 import com.nattarit.citiessearchalgorithm.core.BaseFragment
+import com.nattarit.citiessearchalgorithm.core.exception.Failure
 import com.nattarit.citiessearchalgorithm.feature.adapter.CityListAdapter
 import com.nattarit.citiessearchalgorithm.feature.adapter.CityListEvent
 import kotlinx.android.synthetic.main.fragment_city_list.*
@@ -19,6 +21,13 @@ class CityListFragment : BaseFragment() {
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
         initCityListAdapter()
+        initSearchView()
+    }
+    private fun initSearchView(){
+
+        edt_search.doAfterTextChanged {
+            viewModel.filterCityList(it.toString())
+        }
     }
 
     private fun initCityListAdapter() {
@@ -39,16 +48,47 @@ class CityListFragment : BaseFragment() {
 
     override fun observeViewModel() {
         super.observeViewModel()
-        viewModel.cities.observe(viewLifecycleOwner){
+        viewModel.setCityList.observe(viewLifecycleOwner){
             cityListAdapter.setData(items = it)
         }
+        viewModel.isShowLoadingView.observe(viewLifecycleOwner){
+            showLoadingView(isShow = it)
+        }
+        viewModel.failure.observe(viewLifecycleOwner){
+            handleFailure(failure = it)
+        }
+        viewModel.isShowEmptyView.observe(viewLifecycleOwner){
+            showEmptyView(isShow = it)
+        }
     }
+    private fun showEmptyView(isShow: Boolean){
+        if (isShow){
+            showView(tv_not_found)
+        }else{
+            hideView(tv_not_found)
+        }
+    }
+    private fun showLoadingView(isShow:Boolean){
+        if (isShow){
+            hideView(rcv_city_list)
+            showView(rel_progress)
+        }else{
+            showView(rcv_city_list)
+            hideView(rel_progress)
+        }
+    }
+
 
     override fun onViewModelObserved(savedInstanceState: Bundle?) {
         super.onViewModelObserved(savedInstanceState)
         if (savedInstanceState == null){
             viewModel.initData()
         }
+    }
+
+    override fun handleFailure(failure: Failure) {
+        super.handleFailure(failure)
+        Log.e(TAG, "handleFailure: ERROR : $failure")
     }
 
 }
