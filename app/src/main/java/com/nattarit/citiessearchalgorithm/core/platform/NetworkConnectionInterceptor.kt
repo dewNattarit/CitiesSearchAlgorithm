@@ -1,4 +1,4 @@
-package com.nattarit.citiessearchalgorithm.core
+package com.nattarit.citiessearchalgorithm.core.platform
 
 import android.content.Context
 import android.net.ConnectivityManager

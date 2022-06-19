@@ -1,4 +1,4 @@
-package com.nattarit.citiessearchalgorithm.core
+package com.nattarit.citiessearchalgorithm.core.platform
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData

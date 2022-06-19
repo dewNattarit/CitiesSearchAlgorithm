@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nattarit.citiessearchalgorithm.R
-import com.nattarit.citiessearchalgorithm.core.BaseFragment
+import com.nattarit.citiessearchalgorithm.core.platform.BaseFragment
 import com.nattarit.citiessearchalgorithm.core.exception.Failure
 import com.nattarit.citiessearchalgorithm.feature.adapter.CityListAdapter
 import com.nattarit.citiessearchalgorithm.feature.adapter.CityListEvent

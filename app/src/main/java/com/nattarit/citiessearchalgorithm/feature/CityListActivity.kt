@@ -3,7 +3,7 @@ package com.nattarit.citiessearchalgorithm.feature
 import android.os.Bundle
 import android.util.Log
 import com.nattarit.citiessearchalgorithm.R
-import com.nattarit.citiessearchalgorithm.core.BaseActivity
+import com.nattarit.citiessearchalgorithm.core.platform.BaseActivity
 
 class CityListActivity : BaseActivity() {
     private val TAG = javaClass.simpleName

@@ -1,4 +1,4 @@
-package com.nattarit.citiessearchalgorithm.core
+package com.nattarit.citiessearchalgorithm.core.platform
 
 import com.google.gson.JsonSyntaxException
 import com.nattarit.citiessearchalgorithm.core.exception.Failure

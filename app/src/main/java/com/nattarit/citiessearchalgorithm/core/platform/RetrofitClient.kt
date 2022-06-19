@@ -1,8 +1,9 @@
-package com.nattarit.citiessearchalgorithm.core
+package com.nattarit.citiessearchalgorithm.core.platform
 
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.nattarit.citiessearchalgorithm.core.platform.NetworkConnectionInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -3,8 +3,8 @@ package com.nattarit.citiessearchalgorithm.feature
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.nattarit.citiessearchalgorithm.core.BaseViewModel
-import com.nattarit.citiessearchalgorithm.core.SingleLiveEvent
+import com.nattarit.citiessearchalgorithm.core.platform.BaseViewModel
+import com.nattarit.citiessearchalgorithm.core.platform.SingleLiveEvent
 import com.nattarit.citiessearchalgorithm.core.domain.entity.City
 import com.nattarit.citiessearchalgorithm.core.domain.usecase.FilterCityListUseCase
 import com.nattarit.citiessearchalgorithm.core.domain.usecase.GetCityListUseCase

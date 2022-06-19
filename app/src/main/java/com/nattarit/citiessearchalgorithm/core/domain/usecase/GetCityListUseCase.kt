@@ -1,6 +1,6 @@
 package com.nattarit.citiessearchalgorithm.core.domain.usecase
 
-import com.nattarit.citiessearchalgorithm.core.domain.remote.CityRemoteRepository
+import com.nattarit.citiessearchalgorithm.core.domain.adapter.CityRemoteRepository
 import com.nattarit.citiessearchalgorithm.core.domain.entity.City
 import com.nattarit.citiessearchalgorithm.core.exception.Failure
 import com.nattarit.citiessearchalgorithm.core.fuctionnal.Either

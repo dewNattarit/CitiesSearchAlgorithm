@@ -1,4 +1,4 @@
-package com.nattarit.citiessearchalgorithm.core
+package com.nattarit.citiessearchalgorithm.core.platform
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

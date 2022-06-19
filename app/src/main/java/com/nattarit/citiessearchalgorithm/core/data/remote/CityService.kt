@@ -1,6 +1,6 @@
 package com.nattarit.citiessearchalgorithm.core.data.remote
 
-import com.nattarit.citiessearchalgorithm.core.RetrofitClient
+import com.nattarit.citiessearchalgorithm.core.platform.RetrofitClient
 import com.nattarit.citiessearchalgorithm.core.data.remote.api.CityApi
 import com.nattarit.citiessearchalgorithm.core.data.remote.model.CityModel
 import retrofit2.Call
