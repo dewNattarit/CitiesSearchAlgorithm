@@ -28,6 +28,9 @@ class CityListFragment : BaseFragment() {
         edt_search.doAfterTextChanged {
             viewModel.filterCityList(it.toString())
         }
+        imb_clear.setOnClickListener {
+            viewModel.clearSearch()
+        }
     }
 
     private fun initCityListAdapter() {
@@ -59,6 +62,23 @@ class CityListFragment : BaseFragment() {
         }
         viewModel.isShowEmptyView.observe(viewLifecycleOwner){
             showEmptyView(isShow = it)
+        }
+        viewModel.clearKeyWord.observe(viewLifecycleOwner){
+            clearKeyWord()
+        }
+        viewModel.isShowClearButton.observe(viewLifecycleOwner){
+            showClearButtonView(isShow = it)
+        }
+    }
+    private fun clearKeyWord(){
+        edt_search.setText("")
+    }
+
+    private fun showClearButtonView(isShow: Boolean){
+        if (isShow){
+            showView(imb_clear)
+        }else{
+            hideView(imb_clear)
         }
     }
     private fun showEmptyView(isShow: Boolean){

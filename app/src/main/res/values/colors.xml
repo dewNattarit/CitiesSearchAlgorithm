@@ -10,5 +10,6 @@
     <color name="wild_Sand">#F5F5F5</color>
     <color name="eerie_black">#1A1A1A</color>
     <color name="soft_gray">#F4F3F3</color>
+    <color name="transparent">#00F4F3F3</color>
     <color name="little_light_gray">#f3f3f3</color>
 </resources>

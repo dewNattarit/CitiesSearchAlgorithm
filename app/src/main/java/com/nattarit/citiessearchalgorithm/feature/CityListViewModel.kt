@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.nattarit.citiessearchalgorithm.core.BaseViewModel
+import com.nattarit.citiessearchalgorithm.core.SingleLiveEvent
 import com.nattarit.citiessearchalgorithm.core.domain.entity.City
 import com.nattarit.citiessearchalgorithm.core.domain.usecase.FilterCityListUseCase
 import com.nattarit.citiessearchalgorithm.core.domain.usecase.GetCityListUseCase
@@ -20,6 +21,10 @@ class CityListViewModel constructor(
     val isShowLoadingView: LiveData<Boolean> = _isShowLoadingView
     private var _isShowEmptyState: MutableLiveData<Boolean> = MutableLiveData()
     val isShowEmptyView: LiveData<Boolean> = _isShowEmptyState
+    private var _clearKeyWord: SingleLiveEvent<Void> = SingleLiveEvent()
+    val clearKeyWord: LiveData<Void> = _clearKeyWord
+    private var _isShowClearButton: MutableLiveData<Boolean> = MutableLiveData()
+    val isShowClearButton: LiveData<Boolean> = _isShowClearButton
 
     private var cityList:List<City>? = null
 
@@ -52,9 +57,10 @@ class CityListViewModel constructor(
          if (keyWord.isBlank()){
              setCityList(cityList)
              showLoadingView(false)
+             showClearButtonView(false)
              return
          }
-
+         showClearButtonView(true)
          filterCityListUseCase(FilterCityListUseCase.Params(keyWord,cityList?:ArrayList())){
             it.fold(::handleFailure, ::handleFilterCityListUseCase)
          }
@@ -68,7 +74,9 @@ class CityListViewModel constructor(
 
       }
 
-
+    fun clearSearch(){
+        _clearKeyWord.call()
+    }
 
     private fun setCityList(cities: List<City>?){
         _setCityList.value = cities?:ArrayList()
@@ -78,6 +86,9 @@ class CityListViewModel constructor(
     }
     private fun showEmptyState(isShow:Boolean){
         _isShowEmptyState.value = isShow
+    }
+    private fun showClearButtonView(isShow: Boolean){
+        _isShowClearButton.value = isShow
     }
 
 
