@@ -13,7 +13,6 @@ import junit.framework.Assert.assertFalse
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
-import th.co.prismsolutions.venio2.AndroidTest
 
 class CityListViewModelTest : AndroidTest() {
     private lateinit var cityListViewModel: CityListViewModel

@@ -8,7 +8,6 @@ import io.mockk.impl.annotations.MockK
 import junit.framework.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import th.co.prismsolutions.venio2.AndroidTest
 
 class CityRemoteRepositoryTest : AndroidTest(){
     private lateinit var cityRemoteDataSource: CityRemoteRepository.CityRemoteDataSource
