@@ -32,16 +32,20 @@ interface CityRemoteRepository {
             cities: List<City>
         ): Either<Failure, List<City>> {
             return try {
-                cities.filter {
-                    it.name?.contains(keyWord, true) == true ||
-                            it.country?.contains(keyWord, true) == true
-                }.let {
-                    Either.Right<List<City>>(it)
-                }
+               Either.Right(handleFilterCities(keyWord,cities))
             } catch (e: Exception) {
                 Either.Left<Failure>(Failure.UnknownError)
             }
 
+        }
+    }
+
+    fun handleFilterCities(keyWord: String,cities: List<City>):List<City>{
+        cities.filter {
+            it.name?.contains(keyWord, true) == true ||
+                    it.country?.contains(keyWord, true) == true
+        }.let {
+          return it
         }
     }
 }

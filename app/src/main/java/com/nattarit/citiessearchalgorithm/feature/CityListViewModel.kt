@@ -8,6 +8,11 @@ import com.nattarit.citiessearchalgorithm.core.platform.SingleLiveEvent
 import com.nattarit.citiessearchalgorithm.core.domain.entity.City
 import com.nattarit.citiessearchalgorithm.core.domain.usecase.FilterCityListUseCase
 import com.nattarit.citiessearchalgorithm.core.domain.usecase.GetCityListUseCase
+import com.nattarit.citiessearchalgorithm.core.interactor.UseCase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
 class CityListViewModel constructor(
     private val getCityListUseCase: GetCityListUseCase,
@@ -27,6 +32,7 @@ class CityListViewModel constructor(
     val isShowClearButton: LiveData<Boolean> = _isShowClearButton
 
     private var cityList:List<City>? = null
+    private var isGettingCityList = false
 
 
     fun initData() {
@@ -34,14 +40,16 @@ class CityListViewModel constructor(
     }
 
     private fun getCityList() {
+        isGettingCityList = true
         showLoadingView(true)
-        getCityListUseCase(GetCityListUseCase.Params(true)) {
+        getCityListUseCase(UseCase.None()) {
             it.fold(::handleFailure, ::handleGetCityListUseCase)
         }
     }
 
     private fun handleGetCityListUseCase(cities: List<City>) {
         Log.i(TAG, "handleGetCityListUseCase: ${cities.size}")
+        isGettingCityList = false
         this.cityList = cities
         setCityList(cities)
         showLoadingView(false)
@@ -49,17 +57,19 @@ class CityListViewModel constructor(
     }
      fun filterCityList(keyWord:String){
          showLoadingView(true)
+         if (keyWord.isBlank()){
+             setCityList(cityList)
+             showClearButtonView(false)
+             showLoadingView(false)
+             return
+         }
          if (cityList.isNullOrEmpty()){
              showEmptyState(true)
              showLoadingView(false)
+             showClearButtonView(true)
              return
          }
-         if (keyWord.isBlank()){
-             setCityList(cityList)
-             showLoadingView(false)
-             showClearButtonView(false)
-             return
-         }
+
          showClearButtonView(true)
          filterCityListUseCase(FilterCityListUseCase.Params(keyWord,cityList?:ArrayList())){
             it.fold(::handleFailure, ::handleFilterCityListUseCase)
@@ -82,14 +92,30 @@ class CityListViewModel constructor(
         _setCityList.value = cities?:ArrayList()
     }
     private fun showLoadingView(isShow:Boolean){
+        if (isGettingCityList && !isShow){
+            return
+        }
         _isShowLoadingView.value = isShow
     }
-    private fun showEmptyState(isShow:Boolean){
-        _isShowEmptyState.value = isShow
+     fun showEmptyState(isShow:Boolean){
+        Log.i(TAG, "showEmptyState: $isShow")
+        if (isGettingCityList){
+            return
+        }
+         _isShowEmptyState.value = isShow
     }
     private fun showClearButtonView(isShow: Boolean){
+
         _isShowClearButton.value = isShow
     }
+
+
+    fun setCityListForTest(cities: List<City>){
+        isGettingCityList = false
+        this.cityList = cities
+    }
+
+
 
 
 
