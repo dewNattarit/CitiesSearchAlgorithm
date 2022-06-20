@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.nattarit.citiessearchalgorithm
+package com.nattarit.citiessearchalgorithm.core
 
 import io.mockk.MockKAnnotations
 import org.junit.rules.TestRule

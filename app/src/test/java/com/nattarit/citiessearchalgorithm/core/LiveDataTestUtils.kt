@@ -1,4 +1,4 @@
-package com.nattarit.citiessearchalgorithm
+package com.nattarit.citiessearchalgorithm.core
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer

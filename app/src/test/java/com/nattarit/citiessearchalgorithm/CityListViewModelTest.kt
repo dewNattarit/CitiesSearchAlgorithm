@@ -1,9 +1,11 @@
 package com.nattarit.citiessearchalgorithm
 
+import com.nattarit.citiessearchalgorithm.core.AndroidTest
 import com.nattarit.citiessearchalgorithm.core.domain.entity.City
 import com.nattarit.citiessearchalgorithm.core.domain.usecase.FilterCityListUseCase
 import com.nattarit.citiessearchalgorithm.core.domain.usecase.GetCityListUseCase
 import com.nattarit.citiessearchalgorithm.core.fuctionnal.Either
+import com.nattarit.citiessearchalgorithm.core.getOrAwaitValue
 import com.nattarit.citiessearchalgorithm.core.interactor.UseCase
 import com.nattarit.citiessearchalgorithm.feature.CityListViewModel
 import io.mockk.coEvery

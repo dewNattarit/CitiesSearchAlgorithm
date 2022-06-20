@@ -7,11 +7,11 @@ import com.nattarit.citiessearchalgorithm.core.domain.entity.City
 import com.nattarit.citiessearchalgorithm.core.platform.BaseActivity
 import kotlinx.android.synthetic.main.activity_city.*
 
-class CityActivity  : BaseActivity() {
+class CityActivity : BaseActivity() {
     private val TAG = javaClass.simpleName
     private val CITY = "city"
-    private var city:City? = null
-    override fun layout(): Int  = R.layout.activity_city
+    private var city: City? = null
+    override fun layout(): Int = R.layout.activity_city
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,14 +21,15 @@ class CityActivity  : BaseActivity() {
         super.initInstance(savedInstanceState)
         city = getCity()
     }
-    private fun getCity():City?{
-        return   intent.extras!!.getParcelable<City>(CITY)
+
+    private fun getCity(): City? {
+        return intent.extras!!.getParcelable<City>(CITY)
     }
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
         replaceFragment(savedInstanceState)
-        if (city != null){
+        if (city != null) {
             val title = "${city?.name}, ${city?.country}"
             tv_title.text = title
         }
@@ -47,7 +48,6 @@ class CityActivity  : BaseActivity() {
                 ).commit()
         }
     }
-
 
 
 }

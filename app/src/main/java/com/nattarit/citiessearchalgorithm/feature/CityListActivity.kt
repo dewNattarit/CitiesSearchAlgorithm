@@ -7,7 +7,7 @@ import com.nattarit.citiessearchalgorithm.core.platform.BaseActivity
 
 class CityListActivity : BaseActivity() {
     private val TAG = javaClass.simpleName
-    override fun layout(): Int  = R.layout.activity_city_list
+    override fun layout(): Int = R.layout.activity_city_list
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

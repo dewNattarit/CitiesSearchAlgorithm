@@ -1,5 +1,6 @@
 package com.nattarit.citiessearchalgorithm
 
+import com.nattarit.citiessearchalgorithm.core.AndroidTest
 import com.nattarit.citiessearchalgorithm.core.data.remote.CityService
 import com.nattarit.citiessearchalgorithm.core.domain.adapter.CityRemoteRepository
 import com.nattarit.citiessearchalgorithm.core.domain.entity.City

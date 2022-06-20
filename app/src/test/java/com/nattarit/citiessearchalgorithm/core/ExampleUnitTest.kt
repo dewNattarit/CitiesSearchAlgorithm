@@ -1,4 +1,4 @@
-package com.nattarit.citiessearchalgorithm
+package com.nattarit.citiessearchalgorithm.core
 
 import org.junit.Test
 
