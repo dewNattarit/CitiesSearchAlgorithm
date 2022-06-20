@@ -47,23 +47,23 @@ dependencies {
     implementation deps.kotlin.kotlinx_coroutines_core
     implementation deps.kotlin.kotlinx_coroutines_android
 
-    // Koin AndroidX
+    //Koin AndroidX
     implementation "io.insert-koin:koin-android:3.2.0"
     implementation "io.insert-koin:koin-androidx-navigation:3.2.0"
     implementation "io.insert-koin:koin-androidx-compose:3.2.0"
     testImplementation "io.insert-koin:koin-test-junit4:3.2.0"
 
-    // Retrofit
+    //Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
     implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
 
-    //okhttp3
+    //Okhttp3
     implementation "com.squareup.okhttp3:logging-interceptor:4.8.1"
     implementation "com.squareup.okhttp3:okhttp:4.8.1"
 
-
+    //Room
     implementation "androidx.room:room-runtime:2.4.2"
     implementation "androidx.room:room-ktx:2.4.2"
     implementation "androidx.room:room-ktx:2.4.2"

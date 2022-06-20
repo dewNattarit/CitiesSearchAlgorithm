@@ -1,5 +1,6 @@
 package com.nattarit.citiessearchalgorithm.feature
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.core.widget.doAfterTextChanged
@@ -46,6 +47,9 @@ class CityListFragment : BaseFragment() {
     private fun handleEvent(event:CityListEvent){
         if (event is CityListEvent.OnClick ){
             Log.d(TAG, "handleEvent: ${event.city}")
+            val intent = Intent(requireContext(), CityActivity::class.java)
+            intent.putExtra("city",event.city)
+            startActivity(intent)
         }
     }
 

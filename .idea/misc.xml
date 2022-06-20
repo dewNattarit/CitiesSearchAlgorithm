@@ -5,9 +5,13 @@
       <map>
         <entry key="app/src/main/res/drawable/bg_effect.xml" value="0.1525" />
         <entry key="app/src/main/res/drawable/bg_search.xml" value="0.1525" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.1525" />
         <entry key="app/src/main/res/drawable/ic_cancel.xml" value="0.1525" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.1525" />
         <entry key="app/src/main/res/layout/activity_cities_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_city.xml" value="0.625" />
+        <entry key="app/src/main/res/layout/activity_city_list.xml" value="0.1453125" />
+        <entry key="app/src/main/res/layout/fragment_city.xml" value="0.1453125" />
         <entry key="app/src/main/res/layout/fragment_city_list.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_city_list_fragment.xml" value="1.1035714285714286" />
         <entry key="app/src/main/res/layout/item_city_list.xml" value="0.165" />
