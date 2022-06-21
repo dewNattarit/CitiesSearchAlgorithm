@@ -77,5 +77,6 @@ dependencies {
     testImplementation "junit:junit:4.13.2"
     testImplementation "org.robolectric:robolectric:4.4"
     testImplementation "io.mockk:mockk:1.12.2"
+    testImplementation "org.amshove.kluent:kluent-android:1.68"
 
 }

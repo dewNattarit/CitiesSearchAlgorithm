@@ -13,6 +13,7 @@ import io.mockk.impl.annotations.MockK
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertFalse
 import kotlinx.coroutines.runBlocking
+import org.amshove.kluent.shouldBeEqualTo
 import org.junit.Before
 import org.junit.Test
 
@@ -46,8 +47,8 @@ class CityListViewModelTest : AndroidTest() {
         cityListViewModel.filterCityList("")
         val isShowLoadingView = cityListViewModel.isShowLoadingView.getOrAwaitValue()
         val isShowClearButton = cityListViewModel.isShowClearButton.getOrAwaitValue()
-        assertEquals(false, isShowClearButton)
-        assertEquals(false, isShowLoadingView)
+        isShowLoadingView shouldBeEqualTo false
+        isShowLoadingView shouldBeEqualTo false
     }
 
     @Test
@@ -55,8 +56,9 @@ class CityListViewModelTest : AndroidTest() {
         cityListViewModel.filterCityList("")
         val isShowLoadingView = cityListViewModel.isShowLoadingView.getOrAwaitValue()
         val isShowClearButton = cityListViewModel.isShowClearButton.getOrAwaitValue()
-        assertEquals(false, isShowClearButton)
-        assertFalse(isShowLoadingView)
+        isShowLoadingView shouldBeEqualTo false
+        isShowClearButton shouldBeEqualTo false
+
     }
 
     @Test
@@ -66,9 +68,10 @@ class CityListViewModelTest : AndroidTest() {
         val isShowLoadingView = cityListViewModel.isShowLoadingView.getOrAwaitValue()
         val isShowClearButton = cityListViewModel.isShowClearButton.getOrAwaitValue()
         val isShowEmptyView = cityListViewModel.isShowEmptyView.getOrAwaitValue()
-        assertEquals(true, isShowClearButton)
-        assertEquals(false, isShowLoadingView)
-        assertEquals(true, isShowEmptyView)
+        isShowClearButton shouldBeEqualTo true
+        isShowLoadingView shouldBeEqualTo false
+        isShowEmptyView shouldBeEqualTo true
+
     }
 
     @Test

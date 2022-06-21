@@ -7,6 +7,7 @@ import com.nattarit.citiessearchalgorithm.core.domain.entity.City
 import com.nattarit.citiessearchalgorithm.core.platform.RequestHandler
 import io.mockk.impl.annotations.MockK
 import junit.framework.Assert.assertEquals
+import org.amshove.kluent.shouldBeEqualTo
 import org.junit.Before
 import org.junit.Test
 
@@ -29,34 +30,34 @@ class CityRemoteRepositoryTest : AndroidTest(){
     @Test
     fun `get 2 cities in list when key word is ua`(){
        val cities =  cityRemoteDataSource.handleFilterCities("ua",cities)
-        assertEquals(2,cities.size)
+        cities.size shouldBeEqualTo 2
     }
     @Test
     fun `get 1 city in list when key word is dovo`(){
         val cities =  cityRemoteDataSource.handleFilterCities("dovo",cities)
-        assertEquals(1,cities.size)
+        cities.size shouldBeEqualTo 1
     }
 
     @Test
     fun `get 1 city in list when key word is Hurzuf`(){
         val cities =  cityRemoteDataSource.handleFilterCities("Hurzuf",cities)
-        assertEquals(1,cities.size)
+        cities.size shouldBeEqualTo 1
     }
     @Test
     fun `get 1 city in list when key word is vinogradovo`(){
         val cities =  cityRemoteDataSource.handleFilterCities("vinogradovo",cities)
-        assertEquals(1,cities.size)
+        cities.size shouldBeEqualTo 1
     }
 
     @Test
     fun `get 0 city in list when key word is hello`(){
         val cities =  cityRemoteDataSource.handleFilterCities("hello",cities)
-        assertEquals(0,cities.size)
+        cities.size shouldBeEqualTo 0
     }
     @Test
     fun `get 0 city in list when city list is empty`(){
         val cities =  cityRemoteDataSource.handleFilterCities("vinogradovo",ArrayList())
-        assertEquals(0,cities.size)
+        cities.size shouldBeEqualTo 0
     }
 
 
